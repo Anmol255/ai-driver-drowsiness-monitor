@@ -1,67 +1,131 @@
-# ai-driver-drowsiness-monitor
-# AI Driver Drowsiness Monitor
+# AI Driver Drowsiness Monitoring System
 
-A real-time computer vision system that detects driver drowsiness using facial and eye analysis with OpenCV.
+A real-time computer vision application that monitors driver alertness using facial and eye analysis. The system detects signs of drowsiness, triggers audio warnings, logs alert events, and generates session analytics.
+
+---
 
 ## Features
 
-* Real-time face detection
-* Eye detection and monitoring
-* Blink counting
-* Drowsiness score calculation
-* Driver alert system
-* Alert counting
-* CSV event logging
-* Session analytics report
-* Largest-face tracking for improved robustness when multiple people appear in the frame
+### Real-Time Monitoring
 
-## Technologies Used
+* Face Detection using Haar Cascade Classifiers
+* Eye Detection and Tracking
+* Driver-focused Largest Face Selection
+* Live Webcam Processing
+
+### Drowsiness Analysis
+
+* Eye Closure Detection
+* Dynamic Drowsiness Score Calculation
+* Blink Counting
+* Real-Time Drowsiness Alerts
+
+### Safety Features
+
+* Visual Alert Display
+* Audio Warning System (Hooter/Buzzer)
+* Multiple Alert Tracking
+
+### Data Logging & Analytics
+
+* Automatic CSV Event Logging
+* Timestamped Alert Records
+* Session Statistics Generation
+* Maximum Drowsiness Score Tracking
+
+---
+
+## Technology Stack
 
 * Python
 * OpenCV
 * Haar Cascade Classifiers
 * CSV Logging
+* Winsound (Audio Alerts)
 
-## How It Works
+---
 
-The system continuously captures frames from a webcam and detects the driver's face and eyes.
+## Project Workflow
 
-* When eyes are detected, the drowsiness score decreases.
-* When eyes remain closed, the drowsiness score increases.
-* If the score exceeds a threshold, a drowsiness alert is triggered.
-* Blink counts and alert events are tracked.
-* Alert events are automatically saved to a CSV file with timestamps.
-* At the end of the session, a report is generated containing:
+1. Capture live webcam feed.
+2. Detect the driver's face.
+3. Track only the largest face when multiple people appear.
+4. Detect eyes within the face region.
+5. Calculate drowsiness score based on eye closure duration.
+6. Count blinks in real time.
+7. Trigger visual and audio alerts when drowsiness exceeds a threshold.
+8. Log alert events to a CSV file.
+9. Generate a session report after program termination.
 
-  * Total blinks
-  * Total alerts
-  * Maximum drowsiness score
-  * Session duration
+---
 
-## Project Highlights
+## Output Metrics
 
-* Real-time video processing
-* Driver-focused tracking using largest-face selection
-* Event logging and analytics
-* Lightweight implementation suitable for learning computer vision concepts
+The system tracks:
 
-## Future Improvements
+* Total Blink Count
+* Total Alert Count
+* Maximum Drowsiness Score
+* Session Duration
+* Alert Event History
 
-* Eye Aspect Ratio (EAR) based detection
-* Facial landmark tracking
-* Audio alerts
-* Dashboard visualization
-* Fatigue trend analysis
+---
 
-## Run the Project
+## Sample CSV Output
+
+| Timestamp           | Drowsiness Score | Blink Count | Alert Number |
+| ------------------- | ---------------- | ----------- | ------------ |
+| 2026-06-03 13:49:57 | 22               | 16          | 1            |
+| 2026-06-03 13:50:04 | 21               | 37          | 2            |
+
+---
+
+## Project Structure
+
+```text
+ai-driver-drowsiness-monitor/
+│
+├── driver_csv.py
+├── drowsiness_log.csv
+├── requirements.txt
+├── README.md
+└── screenshots/
+```
+
+---
+
+## Installation
 
 ```bash
-pip install -r requirements.txt
+pip install opencv-python
+```
+
+---
+
+## Run
+
+```bash
 python driver_csv.py
 ```
 
-Press `Q` to exit the application.
+Press **Q** to exit the application.
+
+---
+
+## Future Enhancements
+
+* Eye Aspect Ratio (EAR) based detection
+* Facial Landmark Tracking
+* Fatigue Trend Analysis
+* Dashboard Visualization
+* Real-Time Performance Charts
+* Driver Behavior Analytics
+
+---
 
 ## Author
 
 Anmol K
+
+Computer Vision • Artificial Intelligence • Machine Learning
+
